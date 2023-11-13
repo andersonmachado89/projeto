@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: site
+  labels: 
+    app: my-site
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-site
+  template:
+    metadata:
+      labels:
+        app: my-site
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        -  containerPort: 80
